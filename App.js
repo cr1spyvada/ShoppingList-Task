@@ -16,20 +16,14 @@ import randomwords from "random-words";
 
 export default function App() {
   const [searchText, setSearchText] = useState("");
-  const [cardList, setCardlist] = useState([
-    {
-      name: "carrot",
-    },
-  ]);
+  const [cardList, setCardlist] = useState([]);
   const [searchList, setSearchlist] = useState(cardList);
   function searchBar(event) {
-    // console.log(searchText, " ", event);
     setSearchText(event);
     if (event === "") {
       setSearchlist(cardList);
       return;
     }
-    // console.log(searchText, " ", event);
     const newList = cardList.filter((item) => {
       return item.name.toLowerCase().includes(event.toLowerCase());
     });
@@ -66,9 +60,6 @@ export default function App() {
           renderItem={({ item }) => <Card items={item} />}
           data={searchList}
         />
-        {/* {searchList.map((item) => (
-          <Card items={item} />
-        ))} */}
       </View>
     </View>
   );
