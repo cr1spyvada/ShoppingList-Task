@@ -1,14 +1,6 @@
 import { useState, useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
-import {
-  StyleSheet,
-  Text,
-  View,
-  TextInput,
-  FlatList,
-  TouchableOpacity,
-  ScrollView,
-} from "react-native";
+import { View, TextInput, FlatList, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import tw from "twrnc";
 import Card from "./components/Card";
