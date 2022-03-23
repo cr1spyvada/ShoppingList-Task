@@ -28,6 +28,13 @@ export default function App() {
     setSearchText("");
     searchBar("");
   }
+  function removeItem() {
+    const newList = cardList.filter((item) => {
+      if (!item.name.toLowerCase().includes(searchText)) return true;
+      else return false;
+    });
+    setCardlist(newList);
+  }
   useEffect(() => {
     setSearchlist(cardList);
   }, [cardList]);
@@ -41,6 +48,11 @@ export default function App() {
           value={searchText}
           onChangeText={searchBar}
         />
+        <TouchableOpacity onPress={removeItem} style={[tw``, { width: "10%" }]}>
+          <View style={tw`h-10`}>
+            <Icon name="minus" style={tw`text-2xl mx-auto`} />
+          </View>
+        </TouchableOpacity>
         <TouchableOpacity onPress={addItem} style={[tw``, { width: "10%" }]}>
           <View style={tw`h-10`}>
             <Icon name="plus" style={tw`text-2xl mx-auto`} />
